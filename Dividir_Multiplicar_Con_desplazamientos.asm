@@ -115,8 +115,8 @@ segundo_factor:     ;bloque para el segundo factor
     sub al,30h      ;restar 30h para convertir a ascii
     mov var2D,al    ;guardamos la poscion en variable 
     cmp var2D,01h   ;validamos que se ingrese valores menores a'10' en ascii
-    ja  it2        ;si es mayor vamos a error
-    jb  error        ;si es menor vamos a error
+    ja  it2         ;si es mayor vamos a error
+    jb  error       ;si es menor vamos a error
 
 it2:                ;iteracion 2
     mov bh,var1Ub   ;guardamos en bh nuestro binario
@@ -142,7 +142,7 @@ it3:                ;iteracion 5
     shl var1Ub,1    ;desplazamiento a la derecha
     mov ah,var1Ub   ;pasamos var1Ub al registro ah
     mov resultadoBinario,ah ;guardamos lo del registro ah en la variable
-    add resultadoBinario,bh;substraemos 1 al resultado
+    add resultadoBinario,bh;anadimos  resultado la base binaria
     cmp var2D,03h   ;comparamos el divisor 
     je resultado    ;si es igual vamos al resultado
    
@@ -150,19 +150,19 @@ it5:                ;iteracion 6
     shl var1Ub,2    ;desplazamiento a la derecha
     mov ah,var1Ub   ;pasamos var1Ub al registro ah
     mov resultadoBinario,ah;guardamos lo del registro ah en la variable
-    add resultadoBinario,bh;substraemos 1 al resultado
+    add resultadoBinario,bh;anadimos  resultado la base binaria
     cmp var2D,05h   ;comparamos el divisor
     ja  it6         ;mayor
     je resultado    ;igual
     
 it6:                ;iteracion 7
-    add resultadoBinario,bh;substraemos 1 al resultado
+    add resultadoBinario,bh;anadimos  resultado la base binaria
     cmp var2D,06h   ;comparamos el divisor
     ja  it7         ;mayor
     je resultado    ;igual
     
 it7:                ;iteracion 8
-    add resultadoBinario,bh;agregamos 1 al resultado
+    add resultadoBinario,bh;anadimos  resultado la base binaria
     cmp var2D,07h   ;comparamos el divisor
     je resultado    ;igual
     
@@ -170,7 +170,7 @@ it9:                ;iteracion 9
     shr var1Ub,3    ;desplazamiento a la derecha
     mov ah,var1Ub   ;pasamos var1Ub al registro ah
     mov resultadoBinario,ah;guardamos lo del registro ah en la variable
-    add resultadoBinario,bh;agregamos 1 al resultado
+    add resultadoBinario,bh;anadimos  resultado la base binaria
     cmp var2D,09h   ;comparamos el divisor
     je resultado    ;igual
     ja  error       ;mayor
