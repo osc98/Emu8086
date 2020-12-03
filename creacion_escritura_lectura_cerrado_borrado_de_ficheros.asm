@@ -1,5 +1,5 @@
 ;-------------------------------- MACRO IMPRIMIR CARACTER X CARACTER -------------------------------------------------------
-printChar MACRO char
+imprimeCaracter MACRO char
  MOV DL, 0
  MOV DL, char
  MOV AH, 02H
@@ -235,7 +235,7 @@ endm
         MOV AX, BX ;pasamos a bx lo de ax  
         lea si,buffer;movemos lo del registro si a la variable del contenido del fichero
         imparch: ;imprimi el contenido leido
-        printChar [SI];imprimimos caracter a caracter del contenido segun posicion de si
+        imprimeCaracter [SI];imprimimos caracter a caracter del contenido segun posicion de si
         cmp [si],0dh;comparamos con un enter
         je impsalir;si es enter salimos y limpiamos variables
         inc si;incrementamos la posicion si 
